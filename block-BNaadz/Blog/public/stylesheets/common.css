@@ -1,0 +1,119 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: rgb(232, 232, 232);
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+.btn{
+  padding: 10px;
+  background-color: rgb(45, 143, 45);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.logo{
+  font-size: 36px;
+  font-weight: 800;
+}   
+
+.header{
+  background-color: rgb(201, 231, 240);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.logo{
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: 700;
+  color: rgb(29, 132, 242);
+}
+body{
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+.social-media{
+  display: flex;
+  gap: 30px;
+}
+.social-media a{
+  text-decoration: none;
+  color: rgb(94, 94, 94);
+  font-size: 30px;
+  gap: 20px;
+}
+.btn-holder{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px 0 50px;
+}
+.btn-holder a{
+  text-decoration: none;
+  color: gray;
+  font-size: 20px;
+  padding: 10px;
+  background-color: khaki;
+  border-radius: 10px;
+}
+.footer{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgb(239, 225, 216);
+}
+ul{
+  list-style-type:none;
+}
+.btn-add{
+  background-color: indianred;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: aquamarine;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: inline-block;
+}
+.add-btn-holder{
+  text-align: right;
+  margin-right: 20px;
+} 
+.err{
+  color: red;
+}
+.container{
+  min-height: 55vh;
+} 
+.hearder-nav{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.err-msg{
+  color: red;
+}
+.user-name-holder{
+  display: flex;
+  align-items: center;
+}
+.user-name-holder i{
+  color: green;
+  font-size: 20px;
+}
+.username{
+  color: green;
+  margin-left: 10px;
+}

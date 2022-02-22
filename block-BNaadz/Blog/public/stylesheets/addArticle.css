@@ -1,0 +1,20 @@
+form{
+  display: block;
+  width: 50%;
+  margin: 50px auto;
+  padding: 50px;
+  text-align: center;
+  border-radius: 10px;
+  border:5px solid gray ;
+}
+input, textarea, select{
+  width: 80%;
+  padding: 5px;
+  font-size: 20px;
+  margin-top: 20px;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+}
+ul{
+  list-style: none;
+}  

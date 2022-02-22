@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <link rel="stylesheet" href="/stylesheets/register.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+  <%- include('partials/header.ejs') %>.
+  <div class="container">
+    <form action="/users/register" method="post">
+      <h1>Register User</h1>
+      <% if(err) { %>
+        <p><%=err%></p>
+      <% } %>
+      <input type="text" name="firstName" placeholder="Enter Your FirstName">
+      <input type="text" name="lastName" placeholder="Enter Your LastName">
+      <input type="text" name="email" placeholder="Enter Your email">
+      <input type="password" name="password" placeholder="Enter Your password">
+      <input type="text" name="city" placeholder="Enter Your City">
+      <input type="submit" value="Register User">
+    </form>
+  </div>
+  <%- include('partials/footer') -%>
+
+</body>
+</html>   
