@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/articleDetails.css">
+  <link rel="stylesheet" href="/stylesheets/common.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+  <%- include('partials/header') -%>
+  <div class="container">
+      <% if(errMsg) { %>
+        <p class="err-msg"><%=errMsg%></p>
+      <%}%>
+    <% if(article) { %>
+      <h2 class="title"><%= article.title %></h2>
+      <h2 class="author"><%= article.author.fullName() %></h2>
+      <h2 class="slug"><%= article.slug %></h2>
+      <h2 class="description"><%= article.description %></h2>
+      <h2 class="likesCount"><%= article.likes %></h2>
+      <div class="like-holder">
+        <a class="btn-like" href="/articles/<%=article.slug%>/likes"><i class="ri-thumb-up-fill"></i></a>
+        <a class="btn edit" href="/articles/<%=article.slug%>/edit">Edit</a>
+        <a class="btn delete" href="/articles/<%=article.slug%>/delete">Delete</a>
+      </div>
+      <div class="comment-holder">
+        <form action="/articles/<%= article.slug %>/comment" method="POST">
+          <textarea name="text" id="" cols="30" rows="5" placeholder="Enter Comments"></textarea>
+          <input type="submit" value="Add Comment">
+        </form>
+        <ul class="comment-list">
+          <h2>Comments...</h2>
+          <% if(article.comments.length) { %>
+            <% article.comments.forEach((comment)=>{ %>
+              <li class="single-comment-list">
+                <h3><%=comment.text%></h3>
+                <div class="comment-data-holder">
+                  <div class="comment-likes-holder">
+                    <h3><%=comment.likes%></h3>
+                    <a href="/comments/<%=comment._id%>/likes"><i class="ri-thumb-up-fill"></i></a>
+                  </div>
+                  <a href="/comments/<%=comment._id%>/delete">Delete</a>
+                  <a href="/comments/<%=comment._id%>/edit">edit</a>
+                </div>
+              </li>
+            <% }) %>
+          <% } else { %>
+              <h2>No any comment</h2>
+          <% } %>
+        </ul>
+      </div>
+    <% } %>
+  </div>
+  <%- include('partials/footer') -%>
+</body>
+</html>

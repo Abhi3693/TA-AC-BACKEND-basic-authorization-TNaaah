@@ -1,0 +1,91 @@
+li{
+  margin-bottom: 30px;
+}
+.title{
+  color: rgb(29, 118, 174);
+  font-size: 36px;
+  font-weight: 700;
+}
+.author{
+  color: rgb(21, 106, 186);
+  font-size: 26px;
+}
+.container{
+  width: 90%;
+  margin : 50px auto;
+}
+
+.edit, .delete, .back{
+  background-color: rgb(17, 115, 206);
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid gray;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.likes{
+  color: rgb(29, 106, 29);
+  text-decoration: none;
+  font-size: 36px;
+  margin: 0 20px;
+  margin-left: 40px;
+}
+.back{
+  background-color: rgb(223, 156, 21);
+}
+
+textarea, input{
+  display: block;
+  width: 30%;
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid lightgray;
+  margin:20px 0;
+}
+input{
+  width: 15%;
+}
+.comment-holder{
+  margin-top: 50px;
+}
+.btn{
+  padding: 5px;
+  font-size: 15px;
+  margin-left: 20px;
+}
+.likesCount{
+  margin: 0  30px;
+  color: green;
+  font-size: 24px;
+}
+.btn-like{
+  margin: 0  30px;
+  text-decoration: none;
+  color: green;
+  font-size: 24px;
+}
+.delete{
+  background-color: rgb(216, 54, 54);
+} 
+.comment-list{
+  width: 50%;
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  padding: 30px;
+}
+li{
+  border-bottom: 1px dotted gray;
+}
+.single-comment-list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.comment-data-holder{
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
