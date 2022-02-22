@@ -1,0 +1,36 @@
+<header class="header">
+  <div>
+    <a class="logo" href="/">
+      <span>Blog</span>
+    </a>
+  </div>
+  <div class="hearder-nav">
+    <% if(user) { %>
+      <div class="user-name-holder">
+        <i class="ri-user-fill"></i>
+        <h3 class="username"><%=user.fullName()%> </h3> 
+      </div>
+      <a class="btn-add" href="/articles?author=<%=user._id%>">
+        My Articles
+      </a>
+      <a class="btn-add" href="/articles/">
+        All Articles
+      </a>
+      <a class="btn-add" href="/articles/new">
+        Add Article
+      </a>
+        <a class="btn" href="/users/logout">Logout</a>
+    <% } else { %>
+      <a href="/users/login">
+        <button class="btn">Login</button>
+      </a>
+      <a class="btn-add" href="/articles/">
+        All Articles
+      </a>
+      <a class="btn register" href="/users/register">Register New</a>
+    <% } %>
+  </div>
+</header>
+<div class="add-btn-holder">
+  
+</div>
