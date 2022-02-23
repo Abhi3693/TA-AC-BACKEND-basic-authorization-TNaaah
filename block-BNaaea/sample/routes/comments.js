@@ -1,5 +1,6 @@
 let express = require('express');
 let Comment = require('../models/Comment');
+let auth = require('../middlewares/auth');
 
 let router = express.Router();
 

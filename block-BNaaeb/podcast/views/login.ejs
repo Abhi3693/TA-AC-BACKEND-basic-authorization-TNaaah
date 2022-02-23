@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <div class="container">
+      <form action="/users/login" method="POST">
+        <h1>Login User</h1>
+        <div>
+          <% if(error) { %>
+          <p class="err-msg"><%=error%></p>
+          <% } %>
+        </div>
+          <input class="input-text" type="text" name="email" placeholder="Enter Email" />
+          <input class="input-text" type="password" name="password" placeholder="Enter User password"/>
+        <div>
+          <h3>Role :</h3>
+          <input type="radio" , name="isAdmin" id="role1" value="true" />
+          <label for="role1">Admin</label>
+          <input type="radio" , name="isAdmin" id="role2" value="false" />
+          <label for="role2">User</label>
+        </div>
+        <div>
+          <h3>Member :</h3>
+          <input type="radio" , name="member" id="member1" value="free" />
+          <label for="member1">Free</label>
+          <input type="radio" , name="member" id="member2" value="vip" />
+          <label for="member2">VIP</label>
+          <input type="radio" , name="member" id="member3" value="premium" />
+          <label for="member3">Premium</label>
+        </div>
+        <input class="btn login" type="submit" value="Login" />
+      </form>
+    </div>
+  </body>
+</html>

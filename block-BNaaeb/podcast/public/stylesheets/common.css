@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+.header,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  background-color: rgb(230, 230, 230);
+}
+ul {
+  list-style: none;
+}
+.social-media {
+  display: flex;
+  gap: 20px;
+}
+.container {
+  min-height: 65vh;
+  width: 80%;
+  margin: 0px auto;
+}
+a {
+  text-decoration: none;
+}
+.logo {
+  font-size: 48px;
+  font-weight: 800;
+  color: rgb(48, 132, 222);
+}
+.social-media i {
+  font-size: 30px;
+  color: rgb(218, 134, 134);
+}
+.header-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+.btn {
+  padding: 10px;
+  background-color: rgb(18, 131, 18);
+  margin-right: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: white;
+}
+.copy {
+  font-size: 22px;
+  color: rgb(96, 96, 96);
+}
+.err-msg {
+  color: red;
+}
+.logout {
+  background-color: tomato;
+}
+.user-name-holder {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.user-name-holder i {
+  color: green;
+}
+.username {
+  margin-left: 10px;
+  margin-right: 20px;
+  color: green;
+}
+.header-btn-holder {
+  display: flex;
+  align-items: center;
+}
