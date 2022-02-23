@@ -1,0 +1,31 @@
+<header class="header">
+  <div>
+    <a class="logo" href="/">
+      <span>iCart</span>
+    </a>
+  </div>
+  <% if(user) { %>
+  <div class="header-btn-holder">
+    <div class="user-name-holder">
+      <% if(user.role === "admin") { %>
+      <i class="ri-user-settings-fill"></i>
+      <h3 class="username">(Admin)<%=user.username%></h3>
+      <a class="btn" href="/users/all">All users</a>
+      <a class="btn" href="/products/addProduct">Add Product</a>
+      <% } else { %>
+      <i class="ri-user-fill"></i>
+      <h3 class="username"><%=user.username%></h3>
+      <% } %>
+    </div>
+    <a class="btn" href="/users/myBag">My Bag</a>
+    <a class="btn logout" href="/users/logout">Logout</a>
+    <a class="btn" href="/products/dashboard">All Products</a>
+  </div>
+  <% } else { %>
+  <div>
+    <a class="btn" href="/users/login">Login</a>
+    <a class="btn" href="/users/register">Register</a>
+    <a class="btn" href="/products/dashboard">All Products</a>
+  </div>
+  <% } %>
+</header>

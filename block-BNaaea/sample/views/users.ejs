@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      h1 {
+        text-align: center;
+        color: rgb(58, 148, 164);
+        font-size: 48px;
+        font-weight: 600;
+      }
+      .btn {
+        padding: 10px;
+        color: white;
+        border-radius: 10px;
+        margin-right: 20px;
+      }
+      .container {
+        width: 80%;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/header.ejs') %>
+    <div class="container">
+      <h1>Login Successful</h1>
+      <h2>User Info</h2>
+      <h3><%= singleUser.username %></h3>
+      <h3><%= singleUser.email %></h3>
+      <% if(singleUser.role === "user") { %> <% if(user.role === "admin") { %>
+      <% if(singleUser.isBlocked) { %>
+      <a class="btn" href="/users/unblock?id=<%=singleUser._id%>">UnBlock</a>
+      <% } else { %>
+      <a class="btn" href="/users/block?id=<%=singleUser._id%>">Block</a>
+      <% } %> <% } %> <% } %>
+    </div>
+  </body>
+</html>

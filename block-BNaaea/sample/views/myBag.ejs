@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link rel="stylesheet" href="/stylesheets/myBag.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <div class="container">
+      <h1><%=user.username%>'s Bag</h1>
+      <ul class="bag-holder">
+        <% if(user.bag.length) { %> <% user.bag.forEach((product)=>{ %>
+        <li class="single-product">
+          <div>
+            <img src="<%=product.img%>" alt="img1" />
+          </div>
+          <h2><%=product.name%></h2>
+          <h2><%=product.price%></h2>
+        </li>
+        <% }) %> <% } else {%>
+        <li>No any product in Bag</li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/addProduct.css" />
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <div class="container">
+      <form action="/products/<%=product._id%>/edit" method="POST">
+        <h2>Update Product Details</h2>
+        <input
+          type="text"
+          name="name"
+          placeholder="Add name here"
+          value="<%=product.name%>"
+        />
+        <input
+          type="text"
+          name="price"
+          placeholder="Add price here"
+          value="<%=product.price%>"
+        />
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Add quantity here"
+          value="<%=product.quantity%>"
+        />
+        <input
+          type="text"
+          name="img"
+          placeholder="Add image path here"
+          value="<%=product.img%>"
+        />
+        <input type="submit" value="Update Product" />
+      </form>
+    </div>
+  </body>
+</html>
