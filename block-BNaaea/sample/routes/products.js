@@ -2,34 +2,33 @@ let express = require('express');
 let Product = require('../models/Product');
 const User = require('../models/User');
 const Comment = require('../models/Comment');
+let auth = require('../middlewares/auth');
 
 let router = express.Router();
 
 router.get('/dashboard', (req, res, next) => {
-  Product.find(req.query, (err, products) => {
-    if (err) return next(err);
-    User.find({}, (err, users) => {
-      if (err) return next(err);
-
-      Product.find().distinct('category', (err, categories) => {
-        if (err) return next(err);
-        err = req.flash('error');
-        return res.render('dashboard', { products, users, categories, err });
-      });
+  let products = [];
+  let users = [];
+  Product.find(req.query)
+    .then((allProducts) => {
+      products = allProducts;
+      return User.find({});
+    })
+    .then((allUsers) => {
+      users = allUsers;
+      return Product.find().distinct('category');
+    })
+    .then((categories) => {
+      let err = req.flash('error');
+      res.render('dashboard', { products, users, categories, err });
     });
-  });
 });
 
-router.get('/addProduct', (req, res, next) => {
-  if (req.user.role === 'admin') {
-    res.render('addProduct');
-  } else {
-    req.flash('error', 'Only Admin can add product');
-    res.redirect('/products/dashboard');
-  }
+router.get('/addProduct', auth.isAdmin, (req, res, next) => {
+  res.render('addProduct');
 });
 
-router.post('/new', (req, res, next) => {
+router.post('/new', auth.isAdmin, (req, res, next) => {
   Product.create(req.body, (err, product) => {
     if (err) return next(err);
     res.redirect('/products/' + product._id);
@@ -77,6 +76,8 @@ router.get('/:id/likes', (req, res, next) => {
     }
   );
 });
+
+router.use(auth.isAdmin);
 
 router.get('/:id/delete', (req, res, next) => {
   let id = req.params.id;

@@ -31,38 +31,7 @@ router.post('/register', (req, res, next) => {
 });
 
 // Fetching login data
-router.post('/login', (req, res, next) => {
-  let { email, password } = req.body;
-  if (!email && !password) {
-    req.flash('error', 'Email/password required');
-    res.redirect('/users/login');
-  } else {
-    User.findOne({ email }, (err, singleUser) => {
-      if (err) return next(err);
-      if (singleUser) {
-        if (singleUser.isBlocked) {
-          req.flash('error', 'User is blocked');
-          return res.redirect('/users/login');
-        } else {
-          singleUser.verifypassword(password, (err, result) => {
-            if (err) return next(err);
-
-            if (result) {
-              req.session.userId = singleUser._id;
-              return res.redirect('/users/' + singleUser.id);
-            } else {
-              req.flash('error', 'Enter valid password required');
-              return res.redirect('/users/login');
-            }
-          });
-        }
-      } else {
-        req.flash('error', 'Enter valid email');
-        return res.redirect('/users/login');
-      }
-    });
-  }
-});
+router.post('/login', auth.loginCheck);
 
 router.use(auth.isLoggedUser);
 
@@ -72,7 +41,7 @@ router.get('/logout', (req, res, next) => {
   res.redirect('/users/login');
 });
 
-router.get('/all', (req, res, next) => {
+router.get('/all', auth.isAdmin, (req, res, next) => {
   User.find({ role: 'user' }, (err, users) => {
     if (err) return next(err);
     res.render('allUsers', { users });
@@ -89,15 +58,7 @@ router.get('/myBag', (req, res, next) => {
     });
 });
 
-router.get('/', (req, res, next) => {
-  let id = req.query.name;
-  User.findById(id, (err, user) => {
-    if (err) return next(err);
-    res.render('users', { user });
-  });
-});
-
-router.get('/block', (req, res, next) => {
+router.get('/block', auth.isAdmin, (req, res, next) => {
   User.findByIdAndUpdate(
     req.query.id,
     { isBlocked: true },
@@ -108,7 +69,7 @@ router.get('/block', (req, res, next) => {
   );
 });
 
-router.get('/unblock', (req, res, next) => {
+router.get('/unblock', auth.isAdmin, (req, res, next) => {
   User.findByIdAndUpdate(
     req.query.id,
     { isBlocked: false },

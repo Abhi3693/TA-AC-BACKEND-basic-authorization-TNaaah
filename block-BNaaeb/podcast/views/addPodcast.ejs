@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/addProduct.css" />
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <div class="container">
+      <form action="/products/new" method="POST">
+        <h2>Add Podcast</h2>
+        <input type="text" name="name" placeholder="Add name here" />
+        <input type="text" name="category" placeholder="Add tag here" />
+        <div>
+          <h3>Section</h3>
+          <input type="radio" name="section" id="free" value="free">
+          <label for="free">Free</label>
+          <input type="radio" name="section" id="vip" value="VIP">
+          <label for="vip">Free</label>
+          <input type="radio" name="section" id="premium" value="premium">
+          <label for="premium">Premium</label>
+        </div>
+        <input type="submit" value="Add Product" />
+      </form>
+    </div>
+  </body>
+</html>

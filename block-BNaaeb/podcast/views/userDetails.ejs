@@ -19,7 +19,7 @@
         font-weight: 600;
       }
       .btn {
-        padding: 10px; 
+        padding: 10px;
         color: white;
         border-radius: 10px;
         margin-right: 20px;
@@ -33,14 +33,16 @@
   <body>
     <%- include('partials/header.ejs') %>
     <div class="container">
-      <h1>Listing Users</h1>
-      <% if(users.length) { %> <% users.forEach((user)=>{ %>
-      <div>
-        <a class="" href="/users/<%=user.id%>"><%=user.username%></a>
-      </div>
-      <% }) %> <% } else {%>
-      <h2>There is no any user</h2>
-      <% } %>
+      <h1>Login Successful</h1>
+      <h2>User Info</h2>
+      <h3><%= singleUser.username %></h3>
+      <h3><%= singleUser.email %></h3>
+      <% if(user.isAdmin){ %>
+        <h3>This is admin</h3>
+       <% } else { %>
+        <h3>This is user</h3>
+
+       <% } %>
     </div>
   </body>
 </html>

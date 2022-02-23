@@ -3,22 +3,22 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
+let mongoose = require("mongoose");
 var session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
-let auth = require('./middlewares/auth');
+const MongoStore = require('connect-mongo')(session);
+let auth = require("./middlewares/auth");
 
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
-var commentsRouter = require('./routes/comments');
 
-mongoose.connect('mongodb://localhost/cart', (err) => {
-  console.log(err ? err : 'Connected to Data Base');
+
+mongoose.connect("mongodb://localhost/podcast",(err)=>{
+  console.log(err ? err : "Connected to Data Base");
 });
+
 
 var app = express();
 
@@ -32,32 +32,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(
-  session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
-);
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({mongooseConnection: mongoose.connection }),
+}))
+
 
 app.use(flash());
+
 app.use(auth.userInfo);
 
 app.use('/', indexRouter);
-
 app.use('/users', usersRouter);
-app.use(auth.isLoggedUser);
-app.use('/products', productsRouter);
-app.use('/comments', commentsRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
