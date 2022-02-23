@@ -1,0 +1,62 @@
+.btn-holder{
+  margin: 30px 50px;
+}
+.likes{
+  color: rgb(61, 169, 61);
+  font-size: 30px;
+  margin-right: 20px;
+}
+li{
+  display: flex;
+  align-items: center;
+}
+.name{
+  color: rgb(63, 58, 58);
+  font-size: 36px;
+  margin-left: 20px;
+}
+.price{
+  color: rgb(191, 136, 70);
+  margin-left: 20px;
+}
+.quantity{
+  color: chocolate;
+  margin-left: 20px;
+}
+.likes-count{
+  color: rgb(51, 111, 51);
+  font-size: 26px;
+  margin-left: 20px;
+}
+textarea{
+  width: 30%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+.add-comment{
+  display: block;
+  width: 15%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.no-comment{
+  padding: 10px;
+}
+.comment-list{
+  width: 50%;
+  margin: 10px 0;
+  background-color: rgb(240, 229, 229);
+  border-radius: 10px;
+  padding: 20px;
+}
+.single-comment{
+  border-bottom:1px dotted rgb(187, 187, 187);
+}
+.err-msg-holder{
+  display: flex;
+  justify-content: flex-end;
+} 

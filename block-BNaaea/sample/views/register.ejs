@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <div class="container">
+      <form action="/users/register" method="POST">
+        <h1>Register User</h1>
+        <div>
+          <% if(err) { %>
+          <p class="err-msg"><%=err%></p>
+          <% } %>
+        </div>
+        <input
+          class="input-text"
+          type="text"
+          ,
+          name="username"
+          ,
+          placeholder="Enter User Name"
+        />
+        <input
+          class="input-text"
+          type="text"
+          ,
+          name="email"
+          ,
+          placeholder="Enter Email"
+        />
+        <input
+          class="input-text"
+          type="password"
+          ,
+          name="password"
+          ,
+          placeholder="Enter User password"
+        />
+        <div>
+          <h3>Role :</h3>
+          <input type="radio" , name="role" id="role1" value="admin" />
+          <label for="role1">Admin</label>
+          <input type="radio" , name="role" id="role2" value="user" />
+          <label for="role2">User</label>
+        </div>
+        <input class="btn login" type="submit" value="Register" />
+      </form>
+    </div>
+  </body>
+</html>

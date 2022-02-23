@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/productDetails.css" />
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <div class="container">
+      <div>
+        <% if(err) { %>
+        <p class="err-msg"><%=err%></p>
+        <% } %>
+      </div>
+      <% if(product) { %>
+      <div class="product">
+        <ul>
+          <li><img src="<%=product.img%>" alt="img1" /></li>
+          <li>
+            Name:
+            <h2 class="name"><%=product.name%></h2>
+          </li>
+          <li>
+            Price:
+            <h3 class="price"><%=product.price%></h3>
+          </li>
+          <li>
+            Quantity:
+            <h3 class="quantity"><%=product.quantity%></h3>
+          </li>
+          <li>
+            Likes:
+            <h3 class="likes-count"><%=product.likes%></h3>
+          </li>
+        </ul>
+        <div class="btn-holder">
+          <a class="likes" href="/products/<%=product._id%>/likes"
+            ><i class="ri-thumb-up-fill"></i
+          ></a>
+          <a class="btn edit" href="/products/<%=product._id%>/edit">Edit</a>
+          <a class="btn delete" href="/products/<%=product._id%>/delete"
+            >Delete</a
+          >
+          <a href="/users/addBag/<%=product._id%>">Add To bag</a>
+        </div>
+      </div>
+      <div class="commentbox-holder">
+        <form action="/products/<%=product._id%>/comments" method="POST">
+          <textarea
+            name="text"
+            id=""
+            cols="30"
+            rows="4"
+            placeholder="Add comment"
+          ></textarea>
+          <input class="add-comment" type="submit" value="Add Comments" />
+        </form>
+      </div>
+      <div class="comment-list">
+        <h2>Comments</h2>
+        <% if(product.comments.length) { %> <%
+        product.comments.forEach((comment) =>{ %>
+        <div>
+          <h3 class="single-comment"><%=comment.text%></h3>
+          <a class="btn" href="/comments/<%=comment.id%>/likes">like</a>
+          <a class="btn" href="/comments/<%=comment.id%>/edit">Edit</a>
+          <a class="btn" href="/comments/<%=comment.id%>/delete">Delete</a>
+        </div>
+        <% }) %> <% } else {%>
+        <h2 class="no-comment">No Any Comment</h2>
+        <% } %>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>

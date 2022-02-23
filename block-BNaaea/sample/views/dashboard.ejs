@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link rel="stylesheet" href="/stylesheets/dashboard.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <div class="container">
+      <div>
+        <div>
+          <div>
+            <% if(err) { %>
+            <p class="err-msg"><%=err%></p>
+            <% } %>
+          </div>
+          <form action="/products/dashboard">
+            <h2>Categories list</h2>
+            <select name="category" id="category">
+              <% if(categories.length) { %> <% categories.forEach((category)=>{
+              %>
+              <option value="<%=category%>"><%=category%></option>
+              <% }) %> <% } %>
+            </select>
+            <input type="submit" value="Search" />
+          </form>
+        </div>
+        <h1>Listing all Products</h1>
+        <% if(products.length) { %>
+        <ul class="product-list">
+          <% products.forEach((product)=>{ %>
+          <li class="single-product">
+            <h3><%=product.name%></h3>
+            <a class="details" href="/products/<%=product._id%>">Details</a>
+          </li>
+          <% }) %>
+        </ul>
+        <% } else { %>
+        <h2>No any product in list</h2>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
