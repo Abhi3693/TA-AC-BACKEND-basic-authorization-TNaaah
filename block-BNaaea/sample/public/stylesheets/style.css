@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.login-holder{
+  margin-top: 50px;
+}
+h1{
+  font-size: 56px;
+  color: rgb(181, 154, 4);
+}
+h2{
+  font-size: 36px;
+  color: rgb(189, 134, 63);
+} 

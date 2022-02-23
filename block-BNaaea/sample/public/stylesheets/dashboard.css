@@ -1,0 +1,26 @@
+h1{
+  text-align: center;
+  color: rgb(232, 232, 232);
+  font-size: 48px;
+  font-weight: 800;
+}
+.single-product{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+.product-list{
+  width: 50%;
+  margin: 20px auto ;
+  border-radius: 10px;
+  background-color: rgb(250, 241, 241);
+  padding: 30px;
+}
+.details{
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+}
