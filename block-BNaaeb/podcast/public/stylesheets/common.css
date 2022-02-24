@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  background-color: rgb(230, 230, 230);
+}
+ul {
+  list-style: none;
+}
+
+.container {
+  min-height: 65vh;
+  width: 80%;
+  margin: 0px auto;
+}
+a {
+  text-decoration: none;
+}
+.logo {
+  font-size: 48px;
+  font-weight: 800;
+  color: rgb(48, 132, 222);
+}
+
+.btn {
+  padding: 10px;
+  background-color: rgb(18, 131, 18);
+  margin-right: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: white;
+}
+.err-msg {
+  color: red;
+}
+.logout {
+  background-color: tomato;
+}
+.user-name-holder {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.user-name-holder i {
+  color: green;
+}
+.username {
+  margin-left: 10px;
+  margin-right: 20px;
+  color: rgb(174, 23, 58);
+}
+.username-icon-holder {
+  display: flex;
+  align-items: center;
+}
+.btn-holder {
+  display: flex;
+  align-items: center;
+}
+.username-icon-holder i {
+  color: rgb(174, 23, 58);
+  font-size: 25px;
+}

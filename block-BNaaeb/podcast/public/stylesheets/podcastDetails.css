@@ -1,0 +1,44 @@
+.podcast-holder {
+  text-align: center;
+  padding: 30px 70px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  display: inline-block;
+  background-image: linear-gradient(rgb(193, 12, 172), rgb(199, 18, 88));
+}
+
+.podcast-holder i {
+  color: rgb(18, 84, 199);
+  font-size: 50px;
+}
+.container {
+  text-align: center;
+  padding-top: 100px;
+}
+.vip,
+.premium {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  background-image: linear-gradient(to right, gold, gray);
+}
+.premium {
+  margin-top: 20px;
+  background-image: linear-gradient(to left, gold, gray);
+}
+.btn-holder {
+  margin-top: 10px;
+}
+.free {
+  width: 50%;
+  background-image: linear-gradient(
+    to right,
+    rgb(156, 215, 90),
+    rgb(233, 212, 89)
+  );
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0 auto;
+  color: navy;
+}
