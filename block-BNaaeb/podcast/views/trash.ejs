@@ -1,0 +1,19 @@
+<!-- Header -->
+
+<% if(user) %> <% if(user.isAdmin) { %>
+<div>
+  <a class="btn" href="/users/">All Users</a>
+  <a class="btn logout" href="/users/logout">Logout</a>
+  <a class="btn" href="/podcast/add">Add Podcast</a>
+  <a class="btn" href="/products/">All Podcast</a>
+</div>
+<% } else {%>
+<a class="btn logout" href="/users/logout">Logout</a>
+<a class="btn" href="/products/">All Podcast</a>
+<% } %> <% } else { %>
+<div>
+  <a class="btn" href="/users/login">Login</a>
+  <a class="btn" href="/users/register">Register</a>
+  <a class="btn" href="/products/dashboard">All Products</a>
+</div>
+<% } %>

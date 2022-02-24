@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/allPodcast.css" />
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <div class="container">
+      <h1>Listing Podcast</h1>
+      <div>
+        <% if(error) { %>
+        <p class="err-msg"><%=error%></p>
+        <% } %>
+      </div>
+      <div class="podcast-list-holder">
+        <% if(podcasts.length) { %>
+        <!--  -->
+        <% podcasts.forEach((pod)=>{ %>
+        <a class="pod" href="/podcasts/<%=pod._id%>">
+          <div class="single-pod-holder">
+            <% if(pod.isVarified) { %>
+            <div class="verified"><i class="ri-checkbox-line"></i></div>
+            <% } %>
+            <i class="ri-music-fill"></i>
+            <h2><%=pod.name%></h2>
+            <h3><%=pod.category%></h3>
+            <%if(pod.section === "free") {%>
+            <h3><%=pod.section%></h3>
+            <% } else if(pod.section === "vip") {%>
+            <h3>🏅 <%=pod.section%> 💛</h3>
+            <%} else {%>
+            <h3>🎖 <%=pod.section%> ⭐️</h3>
+            <% } %>
+          </div>
+        </a>
+        <% }) %> <% } else { %>
+        <h2>No any podcast in list</h2>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
