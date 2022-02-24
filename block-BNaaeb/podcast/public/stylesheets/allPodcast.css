@@ -1,0 +1,33 @@
+.single-pod-holder {
+  background-image: linear-gradient(rgb(207, 112, 233), rgb(71, 147, 194));
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+
+  text-align: center;
+}
+.single-pod-holder i {
+  font-size: 40px;
+  color: rgb(245, 148, 28);
+}
+.podcast-list-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.pod {
+  width: 30%;
+  margin-top: 20px;
+}
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: lightgray;
+}
+.verified i {
+  color: green;
+}
+.verified {
+  display: flex;
+  justify-content: flex-end;
+}

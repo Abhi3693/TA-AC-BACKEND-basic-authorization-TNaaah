@@ -1,0 +1,39 @@
+<header class="header">
+  <div>
+    <a class="logo" href="/">
+      <span>iPodCast</span>
+    </a>
+  </div>
+  <% if(user) { %>
+  <!--  -->
+  <% if(user.isAdmin) { %>
+  <div class="btn-holder">
+    <div class="username-icon-holder">
+      <i class="ri-admin-fill"></i>
+      <h2 class="username">(Admin) <%=user.username%></h2>
+    </div>
+    <a class="btn" href="/users/all">All Users</a>
+    <a class="btn" href="/podcasts/addPodcast">Add Podcast</a>
+    <a class="btn" href="/podcasts/all">All Podcast</a>
+    <a class="btn logout" href="/users/logout">Logout</a>
+  </div>
+  <!--  -->
+  <%} else {%>
+  <div class="btn-holder">
+    <div class="username-icon-holder">
+      <i class="ri-user-shared-line"></i>
+      <h2 class="username"><%=user.username%></h2>
+    </div>
+    <a class="btn" href="/podcasts/addPodcast">Add Podcast</a>
+    <a class="btn" href="/podcasts/all">All Podcast</a>
+    <a class="btn logout" href="/users/logout">Logout</a>
+  </div>
+  <% } %>
+  <!--  -->
+  <% } else {%>
+  <div class="btn-holder">
+    <a class="btn" href="/users/login">Login</a>
+    <a class="btn" href="/users/register">Register</a>
+  </div>
+  <% } %>
+</header>
